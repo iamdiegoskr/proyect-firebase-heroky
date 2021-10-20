@@ -10,7 +10,8 @@ import "firebase/firestore";
 import "firebase/auth";
 import { login, logout } from './actions/authActions';
 
-import { PublicNavbar, PrivateNavbar } from './components/Navbar'
+import { PublicNavbar, PrivateNavbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 import HomePage from './pages/HomePage'
 import SingleQuestionPage from './pages/SingleQuestionPage'
 import QuestionsPage from './pages/QuestionsPage'
@@ -51,6 +52,7 @@ const App = ({ dispatch }) => {
             <Route exact path="/new" component={QuestionFormPage} />
             <Redirect to="/" />
           </Switch>
+          <Footer/>
         </> :
         <>
           <PublicNavbar />
@@ -63,6 +65,7 @@ const App = ({ dispatch }) => {
             <Route exact path="/answer/:id" component={AnswerFormPage} />
             <Redirect to="/" />
           </Switch>
+          <Footer/>
         </>
       }
     </Router>

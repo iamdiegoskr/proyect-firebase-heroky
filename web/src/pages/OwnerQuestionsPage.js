@@ -21,18 +21,18 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
         Swal.fire({
             title: 'Estas seguro de eliminar la pregunta?',
             text: "Se eliminara permanentemente",
-            icon: 'Advertencia',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminar'
+            confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(deleteQuestion(id))
                 Swal.fire(
                     'Eliminada',
-                    'Tu pregunta ha sido eliminada.',
-                    'Eliminacion exitosa'
+                    'tu pregunta ha sido eliminada',
+                    'success'
                 )
             }
         })

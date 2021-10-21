@@ -18,6 +18,9 @@ public class QuestionDTO {
     @NotBlank
     private String category;
     private List<AnswerDTO> answers;
+    private Integer numberOfReviews = 0;
+    private Integer sumOfReviewScores = 0;
+    private List<String> userReviews = new ArrayList<>();
 
 
     public QuestionDTO() {
@@ -31,12 +34,16 @@ public class QuestionDTO {
         this.category = category;
     }
 
-    public QuestionDTO(String id, String userId, String question, String type, String category) {
+    public QuestionDTO(String id, String userId, String question, String type, String category,
+                       Integer numberOfReviews, Integer sumOfReviewScores, List<String> userReviews) {
         this.id = id;
         this.userId = userId;
         this.question = question;
         this.type = type;
         this.category = category;
+        this.numberOfReviews = numberOfReviews;
+        this.sumOfReviewScores = sumOfReviewScores;
+        this.userReviews = userReviews;
     }
 
     public List<AnswerDTO> getAnswers() {
@@ -88,6 +95,30 @@ public class QuestionDTO {
         this.category = category;
     }
 
+    public Integer getNumberOfReviews() {
+        return numberOfReviews;
+    }
+
+    public void setNumberOfReviews(Integer numberOfReviews) {
+        this.numberOfReviews = numberOfReviews;
+    }
+
+    public Integer getSumOfReviewScores() {
+        return sumOfReviewScores;
+    }
+
+    public void setSumOfReviewScores(Integer sumOfReviewScores) {
+        this.sumOfReviewScores = sumOfReviewScores;
+    }
+
+    public List<String> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setUserReviews(List<String> userReviews) {
+        this.userReviews = userReviews;
+    }
+
     @Override
     public String toString() {
         return "QuestionDTO{" +
@@ -96,6 +127,10 @@ public class QuestionDTO {
                 ", question='" + question + '\'' +
                 ", type='" + type + '\'' +
                 ", category='" + category + '\'' +
+                ", answers=" + answers +
+                ", numberOfReviews=" + numberOfReviews +
+                ", sumOfReviewScores=" + sumOfReviewScores +
+                ", userReviews=" + userReviews +
                 '}';
     }
 

@@ -64,6 +64,7 @@ const Login = ({ dispatch }) => {
 
     return (
         <div className="login-container">
+            <h2>Inicio de sesion</h2>
             <form className="form-login" onSubmit={loginUser}>
                 <input
                     type="text"

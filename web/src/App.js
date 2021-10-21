@@ -52,7 +52,7 @@ const App = ({ dispatch }) => {
           <PublicNavbar />
           <Switch>
             <Route exact path="/" component={() => {
-              return <HomePage><SignIn dispatch={dispatch} /></HomePage>
+              return <HomePage/>
             }} />
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
@@ -61,8 +61,7 @@ const App = ({ dispatch }) => {
               exact path="/login"
               component={() => {
                 return (
-                  <Login>
-                    <SignIn dispatch={dispatch} />
+                  <Login dispatch={dispatch}>
                   </Login>
                 );
               }}
@@ -86,13 +85,6 @@ const App = ({ dispatch }) => {
 }
 
 
-function SignIn() {
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
-  return <button className="button right" onClick={signInWithGoogle}>Sign in with google</button>;
-}
 
 function SignOut({ dispatch }) {
   return (
@@ -104,7 +96,7 @@ function SignOut({ dispatch }) {
           auth.signOut();
         }}
       >
-        Sign out
+        Salir <i class="fas fa-sign-in-alt"></i>
       </button>
     )
   );

@@ -1,4 +1,5 @@
 const URL_BASE = 'https://mighty-shore-57631.herokuapp.com';
+//const URL_BASE = "http://localhost:8080";
 
 export const LOADING = 'LOADING'
 export const LOADED_SUCCESS = 'LOADED_SUCCESS'
@@ -135,5 +136,25 @@ export function postAnswer(answer) {
             dispatch(failure())
         }
     }
+}
+
+export function postReview(score, id, user) {
+    return async (dispatch) => {
+      dispatch(loading());
+      try {
+        const response = await fetch(`${URL_BASE}/addreview`, {
+          method: "PUT",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId: user, score: score, questionId: id }),
+        });
+        const data = await response.json();
+        dispatch(success({ redirect: `/question/${id}`, question: data }));
+      } catch (error) {
+        dispatch(failure());
+      }
+    };
 }
 

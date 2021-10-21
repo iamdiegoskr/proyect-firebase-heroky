@@ -118,6 +118,23 @@ body {
     color: white;
     padding: 20px;
     margin-top: 340px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+  }
+
+  footer ul{
+    list-style: none;
+    display: flex;
+  }
+
+  footer li{
+    margin-right: 12px;
+  }
+
+  .profile-creator{
+    color: black;
+    justify-self: center;
   }
 
   .login-container{

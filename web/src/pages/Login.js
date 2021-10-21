@@ -5,6 +5,7 @@ import "firebase/auth";
 import { login } from "../actions/authActions";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 firebase.initializeApp({
     apiKey: "AIzaSyDym2qMWJBJ2JwcWp4bHIwF_Aqrf3bxYNs",
@@ -42,7 +43,17 @@ const Login = ({ dispatch }) => {
 
     const loginUser = (event) => {
         event.preventDefault()
-        return auth.signInWithEmailAndPassword(userData.email, userData.password);
+        return auth.signInWithEmailAndPassword(userData.email, userData.password)
+            .then(()=>{
+                Swal.fire('Bienvenido....')
+            })
+            .catch(()=>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Usuario o contraseña invalida'
+                })
+            })
     }
 
 

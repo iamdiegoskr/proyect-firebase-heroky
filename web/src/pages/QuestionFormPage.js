@@ -89,7 +89,8 @@ const mapStateToProps = state => ({
     loading: state.question.loading,
     redirect: state.question.redirect,
     hasErrors: state.question.hasErrors,
-    userId: state.auth.uid
+    userId: state.auth.uid,
+    userEmail : state.auth.email
 })
 
 export default connect(mapStateToProps)(FormPage)

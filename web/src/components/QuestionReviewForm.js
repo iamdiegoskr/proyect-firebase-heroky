@@ -20,23 +20,22 @@ function QuestionReviewForm({ question, user, dispatch, loading, hasErrors }) {
   if (hasErrors) return <p>Unable to display questions.</p>;
 
   return (
-    <section>
-      <h1>Questions</h1>
+    <section className="section-review">
       {renderQuestions() || user === null ? (
         <div>
-          Average question rating: <Rating question={question} />
+          Promedio de la pregunta: <Rating question={question} />
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label for="review">Question rating</label>
+        <form onSubmit={handleSubmit(onSubmit)} className="form-review">
+          <label for="review">Calificar pregunta</label>
           <select {...register("review")} id="">
-            <option value=""> Select...</option>
+            <option value=""> Seleccionar...</option>
             <option value="1">{`\u{1f641}`}</option>
             <option value="2"> {`\u{1f610}`}</option>
             <option value="3"> {`\u{1f600}`}</option>
           </select>
-          <button type="submit" className=" button right">
-            Send review
+          <button type="submit" className="btn-review">
+            Enviar votacion
           </button>
         </form>
       )}

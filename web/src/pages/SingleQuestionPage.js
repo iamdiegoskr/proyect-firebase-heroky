@@ -66,8 +66,8 @@ const SingleQuestionPage = ({
   return (
     <section>
       {renderQuestion()}
-      {userId && <Link to={"/answer/" + id} className="button right">
-        Reply
+      {userId && <Link to={"/answer/" + id} className="button">
+        Responder
       </Link>}
 
       <h2>Answers</h2>

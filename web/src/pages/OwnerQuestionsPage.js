@@ -41,7 +41,7 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
 
 
     const renderQuestions = () => {
-        if (loading) return <p>Loading questions...</p>
+        if (loading) return <div className="loading">Loading questions...</div>
         if (hasErrors) return <p>Unable to display questions.</p>
 
         return questions.map(question => <Question

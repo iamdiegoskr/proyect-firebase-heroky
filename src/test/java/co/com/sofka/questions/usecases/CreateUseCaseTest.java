@@ -11,13 +11,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import reactor.core.publisher.Mono;
 
-import java.lang.reflect.Array;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -30,25 +26,25 @@ class CreateUseCaseTest {
     private QuestionRepository repository;
 
     @Test
-    void createResource(){
+    void createQuestion(){
 
-        var resourceDT0 = new QuestionDTO("xxx","yyy","React o Angular","tecnologia",
+        var questionDTO = new QuestionDTO("xxx","yyy","React o Angular","tecnologia",
                 "TECNOLOGIA",1,2, Arrays.asList("x1", "x2"),  "juandi@gmail.com");
 
-        var resource = new Question();
-        resource.setId("xxx");
-        resource.setUserId("yyy");
-        resource.setQuestion("React o Angular");
-        resource.setType("tecnologia");
-        resource.setCategory("TECNOLOGIA");
-        resource.setNumberOfReviews(1);
-        resource.setSumOfReviewScores(2);
-        resource.setUserReviews(Arrays.asList("x1","x2"));
-        resource.setUserEmail("juandi@gmail.com");
+        var question = new Question();
+        question.setId("xxx");
+        question.setUserId("yyy");
+        question.setQuestion("React o Angular");
+        question.setType("tecnologia");
+        question.setCategory("TECNOLOGIA");
+        question.setNumberOfReviews(1);
+        question.setSumOfReviewScores(2);
+        question.setUserReviews(Arrays.asList("x1","x2"));
+        question.setUserEmail("juandi@gmail.com");
 
-        when(repository.save(Mockito.any(Question.class))).thenReturn(Mono.just(resource));
+        when(repository.save(Mockito.any(Question.class))).thenReturn(Mono.just(question));
 
-        var result = createUseCase.apply(resourceDT0);
+        var result = createUseCase.apply(questionDTO);
 
         Assertions.assertEquals(Objects.requireNonNull(result.block()),"xxx");
     }

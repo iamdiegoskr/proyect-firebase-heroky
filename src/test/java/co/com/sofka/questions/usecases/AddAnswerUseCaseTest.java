@@ -14,34 +14,44 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import reactor.core.publisher.Mono;
 
-import java.util.Objects;
-
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class AddAnswerUseCaseTest {
 
     @SpyBean
-    private AddAnswerUseCase createUseCase;
+    AddAnswerUseCase addAnswerUseCase;
 
     @MockBean
-    private AnswerRepository repository;
+    GetUseCase getUseCase;
+
+    @MockBean
+    AnswerRepository answerRepository;
 
     @Test
-    void createAnswer(){
-        var answerDTO = new AnswerDTO("xxx","yyy","zzz","Es una libreria");
+    void answerTest(){
+        var questionDTO = new QuestionDTO("01","yy","test?","test","test@gmail");
+        var answerDTO = new AnswerDTO("xx","yy","u01","test");
 
         var answer = new Answer();
-        answer.setId("xxx");
-        answer.setQuestionId("yyy");
-        answer.setUserId("zzz");
-        answer.setAnswer("Es una libreria");
+        answer.setId("xx");
+        answer.setQuestionId("yy");
+        answer.setUserId("01");
+        answer.setAnswer("test");
 
-        when(repository.save(Mockito.any(Answer.class))).thenReturn(Mono.just(answer));
+        Mockito.when(answerRepository.save(Mockito.any(Answer.class))).thenReturn(Mono.just(answer));
+        Mockito.when(getUseCase.apply(Mockito.anyString())).thenReturn(Mono.just(questionDTO));
 
-        var result = createUseCase.apply(answerDTO);
 
-        Assertions.assertEquals(Objects.requireNonNull(result.block()).getId(),"yyy");
+        var resultDTO = addAnswerUseCase.apply(answerDTO);
+        var resultQuestionDTO = resultDTO.block();
+
+        assert resultQuestionDTO != null;
+        Assertions.assertEquals(resultQuestionDTO.getId(),questionDTO.getId());
+        Assertions.assertEquals(resultQuestionDTO.getQuestion(),questionDTO.getQuestion());
+        Assertions.assertEquals(resultQuestionDTO.getAnswers().get(0).getQuestionId(),answerDTO.getQuestionId());
+
     }
 
 }
+
+

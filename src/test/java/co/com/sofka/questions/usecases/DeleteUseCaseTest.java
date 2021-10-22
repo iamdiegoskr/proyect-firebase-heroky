@@ -12,7 +12,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import reactor.core.publisher.Mono;
 
-import java.util.Arrays;
 
 
 @SpringBootTest
@@ -30,9 +29,6 @@ class DeleteUseCaseTest {
     @Test
     void delete(){
 
-
-        var questionDTO = new QuestionDTO("1","1","React o Angular","OPEN",
-                "TECNOLOGIA",1,2, Arrays.asList("1", "2"),  "juandi@gmail.com");
 
         var answer = new AnswerDTO();
         answer.setQuestionId("1");

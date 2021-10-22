@@ -4,6 +4,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import { login } from "../actions/authActions";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Swal from 'sweetalert2'
 
 const auth = firebase.auth();
 
@@ -23,7 +24,17 @@ const Register = ({ dispatch }) => {
 
     const registerUser = (event) => {
         event.preventDefault()
-        return auth.createUserWithEmailAndPassword(userData.email, userData.password);
+        return auth.createUserWithEmailAndPassword(userData.email, userData.password)
+            .then(()=>{
+                Swal.fire('Registro exitoso....')
+            })
+            .catch(()=>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al momento de registrarse',
+                    text: 'Verifique que el correo sea valido y que la contraseña sea mayor a 6 caracteres'
+                })
+            })
     }
 
     const [user] = useAuthState(auth);

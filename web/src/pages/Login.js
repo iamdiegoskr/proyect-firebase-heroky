@@ -85,7 +85,7 @@ const Login = ({ dispatch }) => {
                     onClick={signInWithGoogle}
                 >Iniciar con google <i className="fab fa-google"></i></button>
             </form>
-            <p>No tienes una cuenta todavia ?<Link to="/Register">REGISTRARSE</Link></p>
+            <p>No tienes una cuenta todavia ?<Link to="/Register" className="link-register">REGISTRARSE</Link></p>
         </div>
     )
 }

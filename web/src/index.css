@@ -215,3 +215,10 @@ body {
     border: none;
     border-radius: 6px;
   }
+
+  .link-register{
+    color: rgb(82, 7, 133);
+    margin-left: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }

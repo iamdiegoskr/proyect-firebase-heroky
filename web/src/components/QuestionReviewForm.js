@@ -27,8 +27,8 @@ function QuestionReviewForm({ question, user, dispatch, loading, hasErrors }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="form-review">
-          <label for="review">Calificar pregunta</label>
-          <select {...register("review")} id="">
+          <label htmlFor="review">Calificar pregunta</label>
+          <select {...register("review")} id="" required>
             <option value=""> Seleccionar...</option>
             <option value="1">{`\u{1f641}`}</option>
             <option value="2"> {`\u{1f610}`}</option>

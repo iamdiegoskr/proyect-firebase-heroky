@@ -23,12 +23,12 @@ class OwnerListUseCaseTest {
 
     @Test
     void ownerListTest(){
-        var questionDTO = new QuestionDTO("01","u01","test?","test","test");
+        var questionDTO = new QuestionDTO("xx","yy","OPEN","Que es java?","test");
         var question = new Question();
-        question.setId("01");
-        question.setUserId("u01");
-        question.setQuestion("test?");
-        question.setType("test");
+        question.setId("xx");
+        question.setUserId("yy");
+        question.setQuestion("OPEN");
+        question.setType("Que es java?");
         question.setCategory("test");
 
         Mockito.when(questionRepository.findByUserId(questionDTO.getUserId())).thenReturn(Flux.just(question));

@@ -8,10 +8,13 @@ const HomePage = ({children}) => (
       {children}
     </div>
     <p>welcome to the question and answer app.</p>
+    <div className="container-image">
+      <img src="questionhome.svg"/>
+    </div>
     <Link to="/questions" className="button">
       View Questions
     </Link>
-  
+
   </section>
 )
 export default HomePage

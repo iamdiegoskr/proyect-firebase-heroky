@@ -7,7 +7,7 @@ export const Question = ({ question, excerpt, onDelete }) => (
     <p>{question.category}  - <small>{question.type}</small></p>
 
     {onDelete && (
-      <button className="button right" onClick={() => onDelete(question.id)}>ELIMINAR 🗑️</button>
+      <button className="button-delete right" onClick={() => onDelete(question.id)}>ELIMINAR 🗑️</button>
     )}
     {excerpt && (
       <Link to={`/question/${question.id}`} className="button">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const PublicNavbar = () => (
   <nav class="navbar">
-    <img src="question.png"/>
+    <img src="questionskr.png"/>
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>
@@ -14,7 +14,7 @@ export const PublicNavbar = () => (
 
 export const PrivateNavbar = () => (
   <nav class="navbar">
-    <img src="question.png"/>
+    <img src="questionskr.png"/>
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>

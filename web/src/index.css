@@ -8,7 +8,8 @@ body {
   nav {
     display: flex;
     padding: 2rem 0;
-    background: #111;
+    background: rgb(0,0,0);
+    background: linear-gradient(106deg, rgba(0,0,0,1) 0%, rgba(126,99,255,1) 100%);
   }
   
   nav section {
@@ -26,11 +27,11 @@ body {
   }
   
   nav a:hover {
-    background: #222;
+    background: #8269ff;
   }
   
   a {
-    color: #ea3546;
+    color: #ffffff;
     text-decoration: none;
   }
   
@@ -90,12 +91,12 @@ body {
   
   .button {
     display: inline-block;
-    background: #ea3546;
+    background: #5840c6;
     color: white;
     border-radius: 4px;
     font-weight: 700;
     padding: 0.75rem 1.5rem;
-  }
+}
 
   .right {
     float: right;
@@ -109,10 +110,10 @@ body {
   }
 
   footer{
-    background: #ea3546;
+    background: #7e63ff;
     color: white;
     padding: 20px;
-    margin-top: 340px;
+    margin-top: 220px;
     display: grid;
     grid-template-columns: 60% 40%;
     align-items: center;
@@ -157,4 +158,16 @@ body {
 
   .btn-google{
     background: #f95342;
+  }
+
+  .container-image img{
+    width: 400px;
+  }
+
+  .button-delete{
+    background: #ff4b4b;
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 8px;
   }

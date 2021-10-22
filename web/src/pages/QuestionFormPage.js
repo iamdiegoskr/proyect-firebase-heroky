@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { postQuestion } from '../actions/questionActions';
 import { connect } from 'react-redux';
@@ -8,7 +7,6 @@ import {Input} from '../components/Input'
 
 const FormPage = ({ dispatch, loading, redirect, userId }) => {
 
-    //Para la categoria y el tipo
     const [formState, setformState] = useState({
         type:'OPEN (LONG OPEN BOX)',
         category:'TECHNOLOGY AND COMPUTER'
@@ -53,7 +51,7 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
             <form onSubmit={onSubmit}>
 
                 <div>
-                    <label for="type">Type</label>
+                    <label htmlFor="type">Type</label>
                     <select name="type" id="type" onChange={handleInputChange}>
                         <option value="OPEN (LONG OPEN BOX)">OPEN (LONG OPEN BOX)</option>
                         <option value="OPINION (SHORT OPEN BOX)">OPINION (SHORT OPEN BOX)</option>
@@ -62,7 +60,7 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
                     </select>
                 </div>
                 <div>
-                    <label for="category">Category</label>
+                    <label htmlFor="category">Category</label>
                     <select name="category" id="category" onChange={handleInputChange}>
                         <option value="TECHNOLOGY AND COMPUTER">TECHNOLOGY AND COMPUTER</option>
                         <option value="SCIENCES">SCIENCES</option>
@@ -73,7 +71,7 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
                 </div>
 
                 <div>
-                    <label for="question">Question</label>
+                    <label htmlFor="question">Question</label>
                     <Input id="question" setContent={setContent}/>
                 </div>
                 <button type="submit" className="button" disabled={loading} >{

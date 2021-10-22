@@ -9,7 +9,7 @@ const HomePage = ({children}) => (
     </div>
     <p>welcome to the question and answer app.</p>
     <div className="container-image">
-      <img src="questionhome.svg"/>
+      <img src="questionhome.svg" alt='home'/>
     </div>
     <Link to="/questions" className="button">
       View Questions

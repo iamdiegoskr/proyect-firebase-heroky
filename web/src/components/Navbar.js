@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const PublicNavbar = () => (
-  <nav class="navbar">
-    <img src="questionskr.png"/>
+  <nav className="navbar">
+    <img src="questionskr.png" alt='question'/>
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>
@@ -13,8 +13,8 @@ export const PublicNavbar = () => (
 )
 
 export const PrivateNavbar = () => (
-  <nav class="navbar">
-    <img src="questionskr.png"/>
+  <nav className="navbar">
+    <img src="questionskr.png" alt='question'/>
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>

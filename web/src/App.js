@@ -96,7 +96,7 @@ function SignOut({ dispatch }) {
           auth.signOut();
         }}
       >
-        Salir <i class="fas fa-sign-in-alt"></i>
+        Salir <i className="fas fa-sign-in-alt"></i>
       </button>
     )
   );

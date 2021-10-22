@@ -12,6 +12,7 @@ public class Question {
     @Id
     private String id;
     private String userId;
+    private String userEmail;
     private String question;
     private String type;
     private String category;
@@ -82,5 +83,13 @@ public class Question {
 
     public void setUserReviews(List<String> userReviews) {
         this.userReviews = userReviews;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

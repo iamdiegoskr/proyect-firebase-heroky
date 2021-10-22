@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {Input} from '../components/Input'
 
 
-const FormPage = ({ dispatch, loading, redirect, userId }) => {
+const FormPage = ({ dispatch, loading, redirect, userId, userEmail }) => {
 
     const [formState, setformState] = useState({
         type:'OPEN (LONG OPEN BOX)',
@@ -27,7 +27,8 @@ const FormPage = ({ dispatch, loading, redirect, userId }) => {
         e.preventDefault();
         const data = {...formState,
             userId,
-            question:content
+            question:content,
+            userEmail
         }
         validateInput(data) && dispatch(postQuestion(data));
     }
